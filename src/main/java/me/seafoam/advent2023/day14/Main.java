@@ -25,11 +25,12 @@ public class Main implements Puzzle {
 			tiltSouth();
 			tiltEast();
 
-			if (cache.containsKey(mapToString())) {
-				int cycle = i - cache.get(mapToString());
+			String mapString = mapToString();
+			if (cache.containsKey(mapString)) {
+				int cycle = i - cache.get(mapString);
 				while (i + cycle < cycles) i += cycle;
 			} else {
-				cache.put(mapToString(), i);
+				cache.put(mapString, i);
 			}
 		}
 
